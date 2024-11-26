@@ -32,11 +32,14 @@ En el archivo package.json se crean objetos que contienen las dependencias dicie
 
 `npm list` para listar los paquetes instalados en este proyecto
 `npm list -g` para listar los paquetes instalados de manera global
+`npm list -g --depth 0` comando que nos permite identificar las dependencias globales instaladas en nuestro sistema
 
 
 ## Instalar dependencias de manera opcional
-`$ npm install eslint -o`
+`$ npm install eslint -O`
+`$ npm install --save-optional eslint`
 Al ejecutar el comando sí está global, pasa a opcional
+las dependencias opcionales son dependencias que no provocarán una falla durante la instalación de una aplicación o proyecto, ya que npm simplemente las ignora si fallan, por lo que el proyecto debe ser capaz de funcionar sin ellas, bien lo dice su nombre, son opcionales.
 
 
 ## Probar previamente dependencias para evitar tener problemas 
@@ -58,3 +61,13 @@ Instalará la versión más reciente de un paquete, sí tienes una versión anti
 ## Instalar dependencias de un proyecto que clone
 `$ npm install`
 Leerá el package.json e instalará las dependencias tanto las de producción (las normales) como las de desarrollo
+
+
+## Colocar scripts
+Los scripts deben colocar dentro del package.json en el apartado Script
+```json
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node ./src/index.js"
+}
+```
